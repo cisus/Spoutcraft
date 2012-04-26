@@ -25,6 +25,7 @@ import net.minecraft.client.Minecraft;
 
 import org.spoutcraft.client.SpoutClient;
 import org.spoutcraft.client.io.FileUtil;
+import org.spoutcraft.client.gui.settings.ResolutionButton;
 
 import com.pclewis.mcpatcher.mod.Shaders;
 
@@ -80,6 +81,7 @@ public class ConfigReader {
 	public static boolean replaceTools = false;
 	public static boolean replaceBlocks = false;
 	public static boolean hotbarQuickKeysEnabled = true;
+	public static int resolution = -1;
 	
 	//Launcher settings
 	public static boolean fastLogin = false;
@@ -226,6 +228,7 @@ public class ConfigReader {
 		else if (ConfigReader.signDistance >= 128 && ConfigReader.signDistance != Integer.MAX_VALUE) {
 			ConfigReader.signDistance = Integer.MAX_VALUE;
 		}
+		resolution = ResolutionButton.initialize(resolution);
 	}
 
 	public static void restoreDefaults() {
